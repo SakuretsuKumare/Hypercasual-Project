@@ -26,5 +26,10 @@ public class MoveLeft : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (transform.position.x < -210 && gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

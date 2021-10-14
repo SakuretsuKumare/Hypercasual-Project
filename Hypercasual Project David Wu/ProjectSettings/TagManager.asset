@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Obstacle
+  - Kill Player
   layers:
   - Default
   - TransparentFX

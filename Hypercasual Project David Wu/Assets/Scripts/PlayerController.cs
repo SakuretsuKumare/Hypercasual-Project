@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject player;
     private Rigidbody playerRb;
     public float jumpForce = 9;
     public float gravityModifier;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip crashSound;
     private AudioSource playerAudio;
+    public GameObject gameOverScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
         playerAudio = GetComponent<AudioSource>();
+        gameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,6 +49,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over");
             gameOver = true;
             playerAudio.PlayOneShot(crashSound, 1.0f);
+            gameOverScreen.SetActive(true);
+        }
+
+        else if (collision.gameObject.CompareTag("Kill Player"))
+        {
+            Debug.Log("Game Over");
+            gameOver = true;
+            playerAudio.PlayOneShot(crashSound, 1.0f);
+            gameOverScreen.SetActive(true);
         }
     }
 }

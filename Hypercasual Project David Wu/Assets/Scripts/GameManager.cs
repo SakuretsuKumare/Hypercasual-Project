@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+// Some code was used from https://answers.unity.com/questions/1109479/how-to-reload-a-scene-using-scenemanager.html
+
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -18,13 +20,22 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // Goes to the city streets scene.
     public void CityStreetScene()
     {
         SceneManager.LoadScene(1);
     }
 
+    // Goes to the rooftop scene.
     public void RooftopScene()
     {
         SceneManager.LoadScene(2);
+    }
+
+    // Restarts the scene.
+    public void RestartScene()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }

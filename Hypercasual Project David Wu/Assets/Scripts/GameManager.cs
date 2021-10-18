@@ -32,10 +32,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    // Restarts the scene.
+    // Goes back into the title scene.
     public void RestartScene()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(0);
     }
 }
